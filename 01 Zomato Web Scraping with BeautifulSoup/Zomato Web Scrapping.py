@@ -21,8 +21,11 @@ list_tr = top_rest[0].find_all("div",attrs={"class": "col-s-8 col-l-1by3"})
 # @Extract the further intofoirmations
 list_rest =[]
 for tr in list_tr:
-    dataframe ={}
-    dataframe["rest_name"] = (tr.find("div",attrs={"class": "res_title zblack bold nowrap"})).text.replace('\n', ' ')
+    dataframe = {
+        "rest_name": (
+            tr.find("div", attrs={"class": "res_title zblack bold nowrap"})
+        ).text.replace('\n', ' ')
+    }
     dataframe["rest_address"] = (tr.find("div",attrs={"class": "nowrap grey-text fontsize5 ttupper"})).text.replace('\n', ' ')
     dataframe["cuisine_type"] = (tr.find("div",attrs={"class":"nowrap grey-text"})).text.replace('\n', ' ')
     list_rest.append(dataframe)
